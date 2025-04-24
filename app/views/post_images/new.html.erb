@@ -1,0 +1,16 @@
+<h2>画像投稿フォーム</h2>
+<% if @post_image.errors.any? %>
+  <%= @post_image.errors.count %>件のエラーが発生しました
+  <% @post_image.errors.each do |errors| %>
+    <li><%= errors.full_message %></li>
+  <% end %>
+<% end %>
+
+<%= form_with model:@post_image do |f| %>
+  <%= f.label :shop_name %>
+  <%= f.text_field :shop_name %>
+  <%= f.label :caption %>
+  <%= f.text_area :caption %>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.submit '投稿' %>
+<% end %>
