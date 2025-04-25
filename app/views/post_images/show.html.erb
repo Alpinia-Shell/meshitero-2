@@ -13,6 +13,16 @@
   <%= link_to '削除',post_image_path, method: :delete , data: {confirm: 'Are you sure?'} %>
 <% end %>
 
+<% if @post_image.favorited_by?(current_user) %>
+  <%= link_to post_image_favorite_path(@post_image.id), method: :delete do %>
+    ♥<%= @post_image.favorites.count %>いいね
+  <% end %>
+  <% else %>
+  <%= link_to post_image_favorite_path(@post_image.id), method: :post do %>
+    ♡<%= @post_image.favorites.count %>いいね
+  <% end %>
+<% end %>
+
 <p>コメント件数</p>
 <%= @post_image.post_comments.count %>件コメント
 <% @post_image.post_comments.each do |post_comment| %>
