@@ -1,10 +1,12 @@
 <h2>投稿一覧</h2>
 <% @post_images.each do |post_image| %>
-  <%= image_tag post_image.get_image %>
+  <%= link_to post_image_path(post_image.id) do %>
+    <%= image_tag post_image.get_image %>
+  <% end %>
   <p>投稿ユーザー画像</p>
-  <%= image_tag 'sample-author1.jpg' %>
+  <%= image_tag post_image.user.get_profile_image(200, 200) %>
   <p>ショップ名</p>
-  <%= post_image.shop_name %>
+  <%= link_to post_image.shop_name,post_image_path(post_image.id) %>
   <p>説明</p>
   <%= post_image.caption %>
   <p>ユーザーネーム</p>

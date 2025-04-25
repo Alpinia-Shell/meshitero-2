@@ -1,0 +1,14 @@
+<%= image_tag @post_image.get_image %>
+<p>ユーザープロフィール画像</p>
+<%= image_tag @post_image.user.get_profile_image %>
+<p>ショップ名</p>
+<%= @post_image.shop_name %>
+<p>説明</p>
+<%= @post_image.caption %>
+<p>ユーザーネーム</p>
+<%= @post_image.user.name %>
+<p>投稿日時</p>
+<%= @post_image.created_at.strftime('%Y/%m/%d') %>
+<% if @post_image.user == current_user %>
+  <%= link_to '削除',post_image_path, method: :delete , data: {confirm: 'Are you sure?'} %>
+<% end %>
