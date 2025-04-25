@@ -11,4 +11,6 @@
   <%= post_image.caption %>
   <p>ユーザーネーム</p>
   <%= post_image.user.name %>
+  <p>コメント数</p>
+  <%= link_to "#{post_image.post_comments.count} コメント",post_image_path(post_image.id) %>
 <% end %>
