@@ -1,9 +1,11 @@
 <h2>画像投稿フォーム</h2>
 <% if @post_image.errors.any? %>
   <%= @post_image.errors.count %>件のエラーが発生しました
-  <% @post_image.errors.each do |errors| %>
-    <li><%= errors.full_message %></li>
-  <% end %>
+  <ul>
+    <% @post_image.errors.each do |errors| %>
+      <li><%= errors.full_message %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= form_with model:@post_image do |f| %>

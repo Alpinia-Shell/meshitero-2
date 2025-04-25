@@ -1,0 +1,16 @@
+<% post_images.each do |post_image| %>
+  <%= link_to post_image_path(post_image.id) do %>
+    <%= image_tag post_image.get_image %>
+  <% end %>
+  <p>投稿ユーザー画像</p>
+  <%= image_tag post_image.user.get_profile_image(200, 200) %>
+  <p>ショップ名</p>
+  <%= link_to post_image.shop_name,post_image_path(post_image.id) %>
+  <p>説明</p>
+  <%= post_image.caption %>
+  <p>ユーザーネーム</p>
+  <%= post_image.user.name %>
+  <p>コメント数</p>
+  <%= link_to "#{post_image.post_comments.count} コメント",post_image_path(post_image.id) %>
+<% end %>
+<%= paginate post_images %>
