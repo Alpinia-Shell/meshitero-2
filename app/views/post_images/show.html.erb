@@ -1,6 +1,6 @@
 <%= image_tag @post_image.get_image %>
 <p>ユーザープロフィール画像</p>
-<%= image_tag @post_image.user.get_profile_image %>
+<%= image_tag @post_image.user.get_profile_image(100,100) %>
 <p>ショップ名</p>
 <%= @post_image.shop_name %>
 <p>説明</p>
